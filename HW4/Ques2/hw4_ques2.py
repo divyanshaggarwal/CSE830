@@ -69,31 +69,31 @@ def TimSort(array, timsort_constant):
 			j+= 1
 			k+= 1
 
-# time_timsort = np.zeros((11,51))
-# for n in range(0,51):
-# 	time_timsort_n = []
-# 	for t in range(1000):
-# 		time_timsort_t = []
-# 		array = np.random.randint(1000000, size=n)
-# 		for k in range(0,51,5):
-# 			start_time = time.perf_counter()
-# 			TimSort(np.copy(array),k)
-# 			stop_time = time.perf_counter()
-# 			time_timsort_t.append(stop_time - start_time)
-# 		time_timsort_n.append(time_timsort_t)
-# 	time_timsort_n = np.array(time_timsort_n)
-# 	time_timsort_n = np.mean(time_timsort_n, axis=0)
-# 	time_timsort[:,n] = time_timsort_n
+time_timsort = np.zeros((11,51))
+for n in range(0,51):
+	time_timsort_n = []
+	for t in range(1000):
+		time_timsort_t = []
+		array = np.random.randint(1000000, size=n)
+		for k in range(0,51,5):
+			start_time = time.perf_counter()
+			TimSort(np.copy(array),k)
+			stop_time = time.perf_counter()
+			time_timsort_t.append(stop_time - start_time)
+		time_timsort_n.append(time_timsort_t)
+	time_timsort_n = np.array(time_timsort_n)
+	time_timsort_n = np.mean(time_timsort_n, axis=0)
+	time_timsort[:,n] = time_timsort_n
 
-# # time_timsort = np.array(time_timsort)
-# time_timsort = 1000. * time_timsort
-# for k in range(0,51,5):
-# 	plt.plot(range(0, 51), time_timsort[(k//5)], label='k=' + str(k))
+# time_timsort = np.array(time_timsort)
+time_timsort = 1000. * time_timsort
+for k in range(0,51,5):
+	plt.plot(range(0, 51), time_timsort[(k//5)], label='k=' + str(k))
 
-# plt.xlabel('Length of Array (N)')
-# plt.ylabel('Average Run time (ms)')
-# plt.legend()
-# plt.show()
+plt.xlabel('Length of Array (N)')
+plt.ylabel('Average Run time (ms)')
+plt.legend()
+plt.show()
 
 
 optimal_k = 15
